@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ibhayi</title>
+    <link rel = "stylesheet" href = "style.css">
+    <style>
+        main{
+            margin-bottom: 10px;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+            
+        }
+        input{
+            display: none;
+        }
+        #container{
+            width: 100%;
+            text-align: center;
+        }
+        h1{
+            font-weight: normal;
+            font-size: 35px;
+            position: relative;
+            margin: 40px 0;
+        }
+        h1::before{
+            content: ' ';
+            position: absolute;
+            width: 100px ;
+            height: 3px;
+            background-color: rgb(36, 32, 33);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: animate 4s linear infinite;
+        }
+        @keyframes animate{
+            0%{
+                width: 100px;
+            }
+            50%{
+                width: 200px;
+            }
+            100%{
+                width: 100px;
+            }
+        }
+        .top-content{
+            background-color: rgb(231, 229, 229);
+            width: 90%;
+            margin: 0 auto 20px auto ;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            border-radius: 5px;
+            
+        }
+        h3{
+            height: 100%;
+            background-color: rgb(192, 192, 192);
+            line-height: 30px;
+            padding: 0 50px;
+        }
+        label{
+            display: inline-block;
+            height:100% ;
+            padding: 0 5px;
+            margin: 0 10px;
+            line-height: 20px;
+            font-size: 18px;
+            color: gray;
+            cursor: pointer;
+            transition: color.5s;
+        }
+        label:hover{
+            color: lightgray;
+        }
+        .photo-gallery{
+           width: 90%; 
+           margin: auto;
+           display: grid;
+           grid-template-columns: repeat(4,1fr);
+           grid-gap: 15px;
+        }
+        .pic{
+            position: relative;
+            height: 220px;
+            border-radius: 5px;
+            box-shadow: 3px 3px 5px lightgray;
+            transition: .5s;
+        }
+        .pic img{
+            width: 100% ;
+            height: 100%;
+            border-radius: 5px;
+        }
+        #check1:checked ~ #container .photo-gallery .pic{
+            opacity: 1;
+            transform: scale(1);
+            position: relative;
+            transition: .5s;
+        }
+        #check2:checked ~ #container .photo-gallery .wattle{
+            transform: scale(1);
+            opacity: 1;
+            position: relative;
+        }
+        #check2:checked ~ #container .photo-gallery .thorn,
+        #check2:checked ~ #container .photo-gallery .krans,
+        #check2:checked ~ #container .photo-gallery .kikuyu,
+        #check2:checked ~ #container .photo-gallery .kwik,
+        #check2:checked ~ #container .photo-gallery .top,
+        #check2:checked ~ #container .photo-gallery .felling{
+            transform: scale(0);
+            opacity: 0;
+            position: absolute;
+        }
+        #check3:checked ~ #container .photo-gallery .krans{
+            transform: scale(1);
+            opacity: 1;
+            position: relative;
+        }
+        #check3:checked ~ #container .photo-gallery .wattle,
+        #check3:checked ~ #container .photo-gallery .thorn,
+        #check3:checked ~ #container .photo-gallery .kikuyu,
+        #check3:checked ~ #container .photo-gallery .kwik,
+        #check3:checked ~ #container .photo-gallery .top,
+        #check3:checked ~ #container .photo-gallery .felling{
+            transform: scale(0);
+            opacity: 0;
+            position: absolute;
+        }
+        #check4:checked ~ #container .photo-gallery .thorn{
+            transform: scale(1);
+            opacity: 1;
+            position: relative;
+        }
+        #check4:checked ~ #container .photo-gallery .krans,
+        #check4:checked ~ #container .photo-gallery .watte,
+        #check4:checked ~ #container .photo-gallery .kikuyu,
+        #check4:checked ~ #container .photo-gallery .kwik,
+        #check4:checked ~ #container .photo-gallery .top,
+        #check4:checked ~ #container .photo-gallery .felling{
+            transform: scale(0);
+            opacity: 0;
+            position: absolute;
+        }
+        #check5:checked ~ #container .photo-gallery .kikuyu{
+            transform: scale(1);
+            opacity: 1;
+            position: relative;
+        }
+        #check5:checked ~ #container .photo-gallery .thorn,
+        #check5:checked ~ #container .photo-gallery .krans,
+        #check5:checked ~ #container .photo-gallery .wattle,
+        #check5:checked ~ #container .photo-gallery .kwik,
+        #check5:checked ~ #container .photo-gallery .top,
+        #check5:checked ~ #container .photo-gallery .felling{
+            transform: scale(0);
+            opacity: 0;
+            position: absolute;
+        }
+        #check6:checked ~ #container .photo-gallery .kwik{
+            transform: scale(1);
+            opacity: 1;
+            position: relative;
+        }
+        #check6:checked ~ #container .photo-gallery .thorn,
+        #check6:checked ~ #container .photo-gallery .krans,
+        #check6:checked ~ #container .photo-gallery .kikuyu,
+        #check6:checked ~ #container .photo-gallery .wattle,
+        #check6:checked ~ #container .photo-gallery .top,
+        #check6:checked ~ #container .photo-gallery .felling{
+            transform: scale(0);
+            opacity: 0;
+            position: absolute;
+        }
+        #checked7:checked ~ #container .photo-gallery .top{
+            transform: scale(1);
+            opacity: 1;
+            position: relative;
+        }
+        #check7:checked ~ #container .photo-gallery .thorn,
+        #check7:checked ~ #container .photo-gallery .krans,
+        #check7:checked ~ #container .photo-gallery .kikuyu,
+        #check7:checked ~ #container .photo-gallery .kwik,
+        #check7:checked ~ #container .photo-gallery .wattle,
+        #check7:checked ~ #container .photo-gallery .felling{
+            transform: scale(0);
+            opacity: 0;
+            position: absolute;
+        }
+        #check8:checked ~ #container .photo-gallery .felling{
+            transform: scale(1);
+            opacity: 1;
+            position: relative;
+        }
+        #check8:checked ~ #container .photo-gallery .thorn,
+        #check8:checked ~ #container .photo-gallery .krans,
+        #check8:checked ~ #container .photo-gallery .kikuyu,
+        #check8:checked ~ #container .photo-gallery .wattle,
+        #check8:checked ~ #container .photo-gallery .kwik,
+        #check8:checked ~ #container .photo-gallery .top{
+            transform: scale(0);
+            opacity: 0;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <table>
+            <tr>
+                <th>
+                    <header><img src="logos/logo-removebg-preview.png" alt="comapny logo"/></header>
+                </th>
+               <th>
+                    <nav>
+                        <ul>
+                            <li><a href="home.html">HOME</a></li>
+                            <li><a href="about.html">ABOUT</a> </li>
+                            <li class="dropdown"><a href="product.html">PRODUCTS</a>
+                                <ul class="dropdown-content">
+                                    <li><a href="product.html#Wood">Braai Wood</a></li>
+                                    <li><a href="product.html#Lawn">Lawns</a> </li>
+                                    <li><a href="product.html#Felling">Wood Felling</a></li>
+                                </ul> </li> 
+                            <li><a href="gallery.html">GALLERY</a></li>
+                    
+                        </ul>
+              
+                    </nav>
+                </th>
+              
+            </tr>
+            
+            
+        </table> 
+        <main>
+            <input type="radio" name="Photos" id="check" checked>
+            <input type="radio" name="Photos" id="check2" >
+            <input type="radio" name="Photos" id="check3" >
+            <input type="radio" name="Photos" id="check4" >
+            <input type="radio" name="Photos" id="check5" >
+            <input type="radio" name="Photos" id="check6" >
+            <input type="radio" name="Photos" id="check7" >
+            <input type="radio" name="Photos" id="check8" >
+       
+           
+            <div id="container">
+                 <h1>OUR PHOTO GALLERY</h1>
+                <div class="top-content">
+                    <h3>Photo Gallery</h3>
+                    <label for="check">All Photos</label>
+                    <label for="check2">Blackwattle</label>
+                    <label for="check3">Rooikrans</label>
+                    <label for="check4">Thorn Wood </label>
+                    <label for="check5">Kikuyu</label>
+                    <label for="check6">Kwik</label>
+                    <label for="check7">Topsoil and Compost</label>
+                    <label for="check8">Tree Felling</label>
+
+                </div>
+
+                <div class="photo-gallery">
+                    <div class="pic wattle">
+                        <a href="black.jpg"><img src="black.jpg" alt=""/></a>
+                        
+                    </div>
+                    
+                    <div class="pic wattle">
+                        
+                        <a href="black (2).jpg"><img src="black (2).jpg" alt="Blackwattle"/></a>
+                        
+                    </div>
+                    <div class="pic wattle">
+                        
+                        <a href="black (3).jpg"><img src="black (3).jpg" alt="Blackwattle"/></a>
+                       
+                    </div>
+                    <div class="pic wattle">
+                        <a href="black (4).jpg"><img src="black (4).jpg" alt="Blackwattle"/></a>
+                        
+                    </div>
+                    <div class="pic wattle">
+                        
+                        <a href="wattle1.jpg"><img src="wattle1.jpg" alt="Blackwattle"/></a>
+                        
+                    </div>
+                    <div class="pic wattle">
+                        
+                        <a href="wattle2.jpg"><img src="wattle2.jpg" alt="Blackwattle"/></a>
+                        
+                    </div>
+                    <div class="pic wattle">
+                        
+                        <a href="wood.jpg"><img src="wood.jpg" alt="Blackwattle"/></a>
+                        
+                    </div>
+                    <div class="pic krans">
+                        <a href="rooikans1.jpg"><img src="rooikans1.jpg" alt="Rooikrans"/></a>
+                       
+                    </div>
+                    
+                    <div class="pic krans">
+                        
+                        <a href="rooikrans3.jpg"><img src="rooikrans3.jpg" alt="Rooikrans"/></a>
+                       
+                    </div>
+                    
+                    <div class="pic krans">
+                       
+                        <a href="rooikrans.jpg"><img src="rooikrans.jpg" alt="Rooikrans"/></a>
+                        
+                    </div>
+                    
+                    <div class="pic krans">
+                       
+                        <a href="rooikrans (2).jpg"><img src="rooikrans (2).jpg" alt="Rooikrans"/></a>
+                        
+                    </div>
+                   
+                    <div class="pic krans">
+                    
+                        <a href="rooikrans (3).jpg"><img src="rooikrans (3).jpg" alt="Rooikrans"/></a>
+                       
+                    </div>
+                    
+
+                    <div class="pic krans">
+                       
+                        <a href="rooikrans (4).jpg"><img src="rooikrans (4).jpg" alt="Rooikrans"/></a>
+                        
+                    </div>
+                    <div class="pic krans">
+                        <a href="rooikrans (6).jpg"><img src="rooikrans (6).jpg" alt="Rooikrans"/></a>
+                       
+                    </div>
+                    <div class="pic krans">
+                        
+                        <a href="rooikrans (7).jpg"><img src="rooikrans (7).jpg" alt="Rooikrans"/></a>
+                    </div>
+                    <div class="pic thorn">
+                        <a href="thorn.jpg"><img src="thorn.jpg" alt="Thorn wood"/></a>
+                        
+                    </div>
+                    <div class="pic thorn">
+                       
+                        <a href="thorn2.jpg"><img src="thorn2.jpg" alt="Thorn wood"/></a>
+                       
+                    </div>
+                    <div class="pic thorn">
+                        
+                        <a href="thorn3.jpg"><img src="thorn3.jpg" alt="Thorn wood"/></a>
+                        
+                    </div>
+                    <div class="pic thorn">
+                        
+                        <a href="thorn (2).jpg"><img src="thorn (2).jpg" alt="Thorn wood"/></a>
+                        
+                    </div>
+                    <div class="pic thorn">
+                        <a href="thorn (3).jpg"><img src="thorn (3).jpg" alt="Thorn wood"/></a>
+                        
+                    </div>
+                    <div class="pic thorn">
+                        <a href="thorn (4).jpg"><img src="thorn (4).jpg" alt="Thorn wood"/></a>
+                    
+                    </div>
+                    <div class="pic thorn">
+                        <a href="thorn (5).jpg"><img src="thorn (5).jpg" alt="Thorn wood"/></a>
+                        
+                    </div>
+                    <div class="pic thorn">
+                        <a href="thorn (6).jpg"><img src="thorn (6).jpg" alt="Thorn wood"/></a>
+                        
+                    </div>
+                    <div class="pic thorn">
+                        <a href="thorn (7).jpg"><img src="thorn (7).jpg" alt="Thorn wood"/></a>
+                    </div>
+                    <div class="pic kikuyu">
+                        <a href="school.jpg"><img src="school.jpg" alt="Kikuyu grass"/></a>
+                        
+                    </div>
+                    <div class="pic kikuyu">
+                      
+                        <a href="school2.jpg"><img src="school2.jpg" alt="Kikuyu grass"/></a>
+                       
+                    </div>
+                    <div class="pic kikuyu">
+                        <a href="school3.jpg"><img src="school3.jpg" alt="Kikuyu grass"/></a>
+                        
+                    </div>
+                    <div class="pic kikuyu">
+                        <a href="school1.jpg"><img src="school1.jpg" alt="Kikuyu grass"/></a>
+                  
+                    </div>
+                    <div class="pic kikuyu">
+                        <a href="planting1.jpg"><img src="planting1.jpg" alt="Kikuyu grass"/></a>
+                        
+                    </div>
+                    <div class="pic kikuyu">
+                        <a href="process3.jpg"><img src="process3.jpg" alt="Kikuyu grass"/></a>
+                    </div>
+                    <div class="pic kwik">
+                        <a href="kwiki.jpg"><img src="kwiki.jpg" alt="Kwiki grass"/></a>
+                       
+                    </div>
+                    <div class="pic kwik">
+                        
+                        <a href="kwiki (2).jpg"><img src="kwiki (2).jpg" alt="Kwiki grass"/></a>
+                    </div>
+                    <div class="pic kwik">
+                        <a href="kwiki (3).jpg"><img src="kwiki (3).jpg" alt="Kwiki grass"/></a>
+                        
+                    </div>
+                    <div class="pic kwik">
+            
+                        <a href="process4.jpg"><img src="process4.jpg" alt="Kwiki grass"/></a>
+                      
+                    </div>
+                    <div class="pic kwik">
+                        
+                        <a href="truck.jpg"><img src="truck.jpg" alt="Kwiki grass"/></a>
+                    </div>
+                    <div class="pic top">
+                        <a href="top.jpg"><img src="top.jpg" alt="topsoil"/></a>
+                        
+                    </div>
+                    <div class="pic top">
+                        <a href="top (2).jpg"><img src="top (2).jpg" alt="topsoil"/></a>
+                       
+                    </div>
+                    <div class="pic top">
+                        
+                        <a href="compost.jpg"><img src="compost.jpg" alt="compost"/></a>
+                        
+                    </div>
+                    <div class="pic top">
+                        
+                        <a href="compost2.jpg"><img src="compost2.jpg" alt="compost"/></a>
+                        
+                    </div>
+                    <div class="pic top">
+                        
+                        <a href="compst3.jpg"><img src="compst3.jpg" alt="compost"/></a>
+                       
+                    </div>
+                    <div class="pic top">
+                        
+                        <a href="compost4.jpg"><img src="compost4.jpg" alt="compost"/></a>
+                    </div>
+                    <div class="pic felling">
+                        <a href="filling.jpg"><img src="filling.jpg" alt="tree being cut down"/></a>
+                   
+                     </div>
+                </div>
+                
+            </div>
+        </main>
+        <footer>
+            <img src="logos/logo-removebg-preview.png" alt="company logo" class="b"/>
+            <a href="mailto:ibhayi240@gmail.com"><img src="logos/email-removebg-preview.png">Email Us</a>
+            <a href="tel:+27 73 256 3492"><img src="logos/tell-removebg-preview.png">call us</a>
+            <a href="https://www.google.com/maps/place/Gqeberha/@-33.7998103,24.8707655,9z/data=!3m1!4b1!4m6!3m5!1s0x1e7b290045ffd62b:0x86fd2337cd894226!8m2!3d-33.9608369!4d25.6022423!16zL20vMDZmMHkz?entry=ttu"><img src="logos/pinned-removebg-preview.png"/>Port Elizabeth, South Africa</a>
+        
+
+
+        </footer>
+    </div>
+</body>
+</html>
